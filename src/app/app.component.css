@@ -1,0 +1,22 @@
+.centerText {
+	text-align: center;
+}
+
+.SectionA {
+	background-color: blue;
+	height: 50vh;
+	width: 100vw;
+}
+
+.SectionB {
+	background-color: red;
+	top: 50%;
+	transform: translate(0%,-50%);
+	position: relative;
+}
+
+.SectionC {
+	background-color: orange;
+	height: 50vh;
+	width: 100vw;
+}
