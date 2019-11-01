@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'testProject';
+  twoWayBinding = "";
+
+  onChangeInput(event: Event){
+    console.log(event);
+    this.title = (<HTMLInputElement>event.target).value;
+  }  
 }

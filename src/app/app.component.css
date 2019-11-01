@@ -9,14 +9,34 @@
 }
 
 .SectionB {
-	background-color: red;
 	top: 50%;
-	transform: translate(0%,-50%);
+	left: 50%;
+	transform: translate(-50%,-50%);
 	position: relative;
+	display: flex;
+	text-align: center;
+	justify-content: center;
 }
 
 .SectionC {
 	background-color: orange;
 	height: 50vh;
 	width: 100vw;
+}
+
+.divOne {
+	margin: 1vh;
+}
+
+.divTwo {
+	display: flex;
+	margin: 1vh;
+	flex-direction: column;	
+	text-align: center;
+	justify-content: center;
+}
+
+.insideDiv {
+	margin: 1vh;
+	color: white;
 }
