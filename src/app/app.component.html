@@ -1,26 +1,26 @@
 <div class="SectionA">
-	<div class="container SectionB">
-		<div class="row">
-			<div class="col-xs-5">
+	<div class="SectionB">
+		<div class="outer">
+			<div class="divOne">
+				<label class="label label-default">Input Text Here</label>
 			</div>
-			<div class="col-xs-1">
-				<div class="centerText">
-					<label class="label label-default">Input Text Here</label>
+			<div class="divTwo">
+				<div class="insideDiv">
+					<input (input)="onChangeInput($event)" class="form-control" [(ngModel)]="twoWayBinding">
 				</div>
-			</div>
-			<div class="col-xs-2">
-				<input class="form-control" [(ngModel)]="title">		
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-xs-6">
-			</div>
-			<div class="col-xs-2">
-				<p>{{ title }}</p>	
+				<div class="insideDiv">
+					<p>{{ title }}</p>	
+					<p>{{ twoWayBinding }}</p>
+				</div>			
 			</div>
 		</div>
+		<div class="divTwo">
+			<div class="insideDiv">
+				<app-server></app-server>
+			</div>
+			<div class="insideDiv">
+				<app-servers></app-servers>
+			</div>			
+		</div>		
 	</div>
-</div>
-<div class="SectionC">
-	<p>Section C</p>
 </div>

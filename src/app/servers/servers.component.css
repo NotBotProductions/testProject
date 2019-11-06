@@ -1,0 +1,12 @@
+button {
+    color: black;
+}
+
+.arrayNamesAdded {
+    position: absolute;
+    top: 90%;
+    left: 60%;
+    z-index: 5;
+    width: 35%;
+    background-color: cadetblue;
+}

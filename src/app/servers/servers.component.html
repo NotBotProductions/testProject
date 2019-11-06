@@ -1,0 +1,10 @@
+<button [disabled]="isDisabled" (click)="onClickOfButton()" class="btn btn-primary">Submit</button>
+<div *ngIf="wasClicked; else placeHolder" [ngStyle]="assignColor()"><p [innerText]="clickedData"></p>
+<p>{{ clickedID }}</p></div>
+<ng-template #placeHolder><p>This button has not been clicked</p></ng-template>
+<div class="arrayNamesAdded">
+    <div *ngFor="let arrayN of arrayNames; let ind = index" 
+    [ngStyle]="{'background-color': ((ind % 2) === 0) ? 'blue' : 'transparent'}">
+        {{ arrayN }} - {{ ind }}
+    </div>
+</div>
