@@ -1,0 +1,20 @@
+.divOne {
+    margin: 2vh;
+}
+
+.divTwo {
+	display: flex;
+	margin: 1vh;
+	flex-direction: column;	
+	justify-content: center;
+}
+
+.insideDiv {
+	margin: 1vh;
+	color: white;
+}
+
+.house {
+    display: flex;
+    align-items: flex-start;
+}
