@@ -1,0 +1,7 @@
+<button [disabled]="isDisabled" (click)="onClickOfButton()" class="btn btn-primary">Submit</button>
+<div class="arrayNamesAdded">
+    <div>
+        <app-server *ngFor="let arrayN of arrayNames; let ind = index" [person]="arrayN" 
+        ></app-server>
+    </div>
+</div> 
