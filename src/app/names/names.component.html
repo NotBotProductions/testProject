@@ -1,0 +1,12 @@
+<div class="house">
+    <div class="divOne">
+        <label class="label label-default">Input Text Here</label>
+    </div>
+    <div class="divTwo">
+        <div class="insideDiv">
+            <input #name (input)="onChangeName(name)" class="form-control">
+            <input #gender (input)="onChangeGender()" class="form-control">
+        </div>
+        <button (click)="onClickOfButton()" class="btn bth-primary">Submit</button>
+    </div>
+</div>
