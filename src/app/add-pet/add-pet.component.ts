@@ -36,15 +36,14 @@ export class AddPetComponent implements OnInit {
     this.pet[0].owner_email = this.formRefChild.value.email; 
     this.pet[0].img_url = this.formRefChild.value.img_url;
     this.pet[0].gender = this.formRefChild.value.gender;
-    this.sendPet = this.pet;
+    this.sendPet = JSON.parse(JSON.stringify(this.pet));;
     this.formRefChild.reset();
+    this.pet[0].food.splice(0,this.pet[0].food.length);    
     this.sendPetObject.emit(this.sendPet[0]);
     this.formRefChild.form.patchValue({
       pet_type: 'dog'
     });
-    //for (let i = 0; i <= this.pet[0].food.length; i++) {
-    //  this.pet[0].food.splice(i, 1);
-    //}
+ 
   }  
 
   addFood() {
