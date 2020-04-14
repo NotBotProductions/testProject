@@ -22,7 +22,5 @@ export class AppComponent {
     });
     this.pet.push(new Pet(petObject.id, petObject.name, petObject.owner_name, petObject.type, petObject.instructions, [], petObject.food, petObject.owner_email, petObject.img_url, petObject.gender));
     console.log(this.pet);
-    this.PetOrSummary = 'summary';
-    this.PetOrSummary = 'pet';
   }
 }
