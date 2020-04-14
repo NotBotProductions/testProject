@@ -14,14 +14,14 @@ export class PetListComponent implements OnInit, OnChanges {
   instructionText: string = '';
   img_url_text: string = '';
   genders = ["male", "female"];
-  @Input('pets') pets: Pet[];
+  @Input('petList') setOfPets: Pet[];
   allPets: Pet[];
   foodLength: number = 0;
 
   constructor() { }
 
   ngOnChanges() {
-    this.allPets = this.pets;
+    this.allPets = this.setOfPets;
   }
 
   ngOnInit(): void {
