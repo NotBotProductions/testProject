@@ -1,0 +1,30 @@
+<div class="container">
+
+    <div class="row" *ngIf="food.length > 0">
+        <div class="col-xs-3" style="text-align: center;">
+            <p style="font-weight: bold;">Food Name</p>
+        </div>
+        <div class="col-xs-3" style="text-align: center;">
+            <p style="font-weight: bold;">Amount</p>
+        </div>
+        <div class="col-xs-3" style="text-align: center;">
+            <p style="font-weight: bold;">Frequency</p>
+        </div>
+    </div>
+    <div class="row" *ngFor="let f of food;" style="padding: 10px;">
+        <div class="col-xs-3">
+            <input #food_name [(ngModel)]="f.food_name" (input)="onChangeName()" class="form-control">
+        </div>
+        <div class="col-xs-3">
+            <input #amount [(ngModel)]="f.amount" (input)="onChangeName()" class="form-control">
+        </div>
+        <div class="col-xs-3">
+            <input #frequency [(ngModel)]="f.frequency" (input)="onChangeName()" class="form-control">
+        </div>
+        <div class="col-xs-3" style="text-align: center;">
+            <button class="btn btn-danger" type="button" (click)="removeFood(f.food_id)">Remove
+            </button>
+        </div>
+    </div>
+
+</div>
