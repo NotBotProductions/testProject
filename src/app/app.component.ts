@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'testProject';
+  title = 'petInfo';
+  PetOrSummary: string = "pet";
+
+  selectedPetOrSummary(selection: string) {
+    this.PetOrSummary = selection;
+  }
 }
