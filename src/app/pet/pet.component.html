@@ -1,0 +1,153 @@
+<div *ngIf="petExists">
+    <form (ngSubmit)="deleteElement()" #formRef="ngForm">
+        <div class="row">
+
+            <div class="col-xs-6">
+                <div ngModelGroup="petAndOwnerName" #petAndOwnerName="ngModelGroup">
+                    <div class="row" style="padding: 10px;">
+                        <div class="form-group">
+                            <div class="col-xs-3">
+                                <p style="font-weight: bold;">Pet Name:</p>
+                            </div>
+                            <div class="col-xs-9">
+                                <input class="form-control" [(ngModel)]="pet.name" name="pet_name" required
+                                    #petname="ngModel">
+                                <span class="help-block" *ngIf="!petname.valid && petname.touched">Please enter
+                                    a
+                                    pet
+                                    name!</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="padding: 10px;">
+                        <div class="form-group">
+                            <div class="col-xs-3">
+                                <p style="font-weight: bold;">Owner Name:</p>
+                            </div>
+                            <div class="col-xs-9">
+                                <input class="form-control" [(ngModel)]="pet.owner_name" name="owner_name" required
+                                    #owner_name="ngModel">
+                                <span class="help-block" *ngIf="!owner_name.valid && owner_name.touched">Please
+                                    enter an
+                                    owner name!</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="padding: 10px;">
+                    <div class="form-group">
+                        <div class="col-xs-3">
+                            <p style="font-weight: bold;">Pet Type:</p>
+                        </div>
+                        <div class="col-xs-3">
+                            <select class="form-control" style="width: 20vw;" [(ngModel)]="pet.type" name="pet_type"
+                                required #pet_type="ngModel">
+                                <option value="dog">dog</option>
+                                <option value="cat">cat</option>
+                                <option value="rodent">rodent</option>
+                                <option value="bunny">bunny</option>
+                                <option value="bird">bird</option>
+                            </select>
+                            <span class="help-block" *ngIf="!pet_type.valid && pet_type.touched">Please enter a
+                                pet
+                                type!</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="padding: 10px;">
+                    <div class="form-group">
+                        <div class="col-xs-3">
+                            <p style="font-weight: bold;">Gender:</p>
+                        </div>
+                        <div class="col-xs-10 col-sm-6">
+                            <div *ngFor="let gender of genders">
+                                <label>
+                                    <input type="radio" [(ngModel)]="pet.gender" name="gender" [value]="gender">
+                                    {{ gender }}
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="padding: 10px;">
+                    <div class="form-group">
+                        <div class="col-xs-3">
+                            <p style="font-weight: bold;">Email:</p>
+                        </div>
+                        <div class="col-xs-9">
+                            <input type="email" class="form-control" [(ngModel)]="pet.owner_email" name="email" required
+                                email #email="ngModel">
+                            <span class="help-block" *ngIf="!email.valid && email.touched">Please enter a valid
+                                email!</span>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-xs-6">
+                <div class="row" style="padding: 10px;">
+                    <div class="col-xs-10">
+                        <p style="font-weight: bold;">Image URL:</p>
+
+                        <input class="form-control" [(ngModel)]="pet.img_url" name="img_url" #img_url="ngModel">
+                        <span class="help-block" *ngIf="!img_url.valid && img_url.touched">Please enter a valid
+                            image URL!</span>
+                    </div>
+                </div>
+                <div class="row" style="padding: 10px;">
+                    <div class="col-xs-10">
+                        <img [src]="pet.img_url" class="img-responsive" style="max-height: 40vh;">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="padding: 10px;">
+            <div class="col-xs-6">
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <p style="font-weight: bold;">Instructions:</p>
+                        </div>
+                        <div class="col-xs-10 col-sm-10 col-md-6">
+                            <textarea style="height: 20vh; width: 30vw;" [(ngModel)]="pet.instructions"
+                                name="instructions" required #instructions="ngModel"></textarea>
+                            <span class="help-block" *ngIf="!instructions.valid && instructions.touched">Please
+                                enter
+                                instructions!</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" style="padding: 10px;">
+            <div class="form-group">
+                <div class="col-xs-6">
+                    <p>Your Instructions: {{ pet.instructions }}</p>
+                </div>
+            </div>
+        </div>
+        <app-add-pet-food (setPetFood)="updateFood($event)" [food]="pet.food"></app-add-pet-food>
+        <div class="row" style="padding: 10px;">
+            <div class="form-group">
+                <div class="col-xs-3">
+                    <button class="btn btn-primary" type="button" (click)="addFood()" [disabled]="!formRef.valid">Add
+                        Food</button>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="padding: 10px;">
+            <div class="form-group">
+                <div class="col-xs-3">
+                    <button class="btn btn-primary" type="submit" [disabled]="!formRef.valid">Delete Pet</button>
+                </div>
+            </div>
+        </div>
+        <a (click)="navigateBackToAddPet()" style="cursor: pointer">Go To Add Pet</a>
+    </form>
+    <hr>
+    <a [routerLink]="['/petsearch', 0]"
+       [queryParams]="{ lastID: pet.id }"
+       [fragment]="'searchSection'">Go To First Pet</a>
+</div>

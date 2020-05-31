@@ -1,0 +1,5 @@
+<div class="container">
+    <div *ngFor="let petInfo of allPets; index as i">
+        <app-pet [pet]="petInfo"></app-pet>
+    </div>
+</div>
